@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h3>Menu Options</h3>
+  <h4>Use this form to get a menu option!</h4>
+  <form nz-form [nzLayout]="'inline'" [formGroup]="form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label>
+          Input your order:
+        </nz-form-label>
+      <nz-form-control nzErrorTip="Please, inform a valid input search criteria">
+        <input formControlName="input" nz-input placeholder="i.e.: morning, 1, 2, 3" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item *ngIf="lastOutput$ | async as lastOutput" nzExtra="last output received">
+       <input nz-input [value]="lastOutput" disabled />
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary" [disabled]="!form.valid">Search</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

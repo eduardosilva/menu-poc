@@ -1,0 +1,21 @@
+<ng-container *ngIf="error$ | async as error">
+  <nz-alert  *ngIf="error" nzType="error" nzMessage="Ops!" [nzDescription]="error">
+  </nz-alert>
+</ng-container>
+
+<nz-table *ngIf="historic$ | async as data" #basicTable [nzData]="data" nzShowPagination="false">
+    <thead>
+      <tr>
+        <th>Moment</th>
+        <th>Input</th>
+        <th>Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.moment | date:'medium'}}</td>
+        <td>{{ data.input }}</td>
+        <td>{{ data.output }}</td>
+      </tr>
+    </tbody>
+  </nz-table>

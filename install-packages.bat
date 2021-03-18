@@ -1,0 +1,1 @@
+cd front/ & npm i & cd ../back & dotnet restore 
